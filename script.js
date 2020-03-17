@@ -31,14 +31,18 @@ function doubleMoney() {
   data = data.map(user => {
     return { ...user, money: user.money * 2 };
   });
+  updateDOM();
+}
 
+// sort users by networth
+function sortByRichest() {
+  data.sort((a, b) => b.money - a.money);
   updateDOM();
 }
 
 // add new obj to data arr
 function addData(obj) {
   data.push(obj);
-
   updateDOM();
 }
 
@@ -65,3 +69,4 @@ function formatMoney(number) {
 // event listeners
 addUserBtn.addEventListener("click", getRandomUser);
 doubleBtn.addEventListener("click", doubleMoney);
+sortBtn.addEventListeners("click", sortByRichest);
